@@ -1,10 +1,10 @@
 public class CreditPaymentService {
     public int calculate(double percent, int amount, int months) {
-        double y = percent / 12 / 100;
-        double n = 1 + y;
+        double monthPercent = percent / 12 / 100;
+        double n = 1 + monthPercent;
         double x = Math.pow(n, months);
-        double k = (y * x) / (x - 1);
-        double payment = amount * k;
+        double coefficient = (monthPercent * x) / (x - 1);
+        double payment = amount * coefficient;
         return (int) payment;
     }
 }
